@@ -2,7 +2,7 @@ import os
 from gundb.server import app
 from gundb.gunrequesthandler import GUNRequestHandler
 
-HOST = os.getenv('HOST', '0.0.0.0')
+HOST = os.getenv('HOST', '127.0.0.1')
 PORT = os.getenv('PORT', '8000')
 
 

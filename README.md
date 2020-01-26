@@ -164,3 +164,12 @@ We use Gun.js javascript client to communicate with pygundb as normal, but with 
 
 # API usage 
 pygundb [documentation](https://xmonader.github.io/pygundb/docs/api/gundb/)
+
+
+# My dev notes
+
+.bashrc:
+
+HOST=$(hostname -A)
+
+make mem/pickle
