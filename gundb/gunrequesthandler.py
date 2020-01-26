@@ -12,6 +12,7 @@ import uuid
 class GUNRequestHandler:
     def __init__(self, backend):
         self.backend = self._init_backend(backend)
+        self._setup_logging()
         self.graph = self.backend.recover_graph()
         if self.graph is None:
             self.graph = {}
