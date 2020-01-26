@@ -11,11 +11,9 @@ app = Flask(__name__)
 sockets = Sockets(app)
 
 
-@app.route("/static/<path:path>")
-def send_public(path):
-    return send_from_directory("static" + "/" + path)
-
-
+@app.route('/')
+def send_public():
+    return render_template('todo.html')
 
 
 @sockets.route("/gun")
