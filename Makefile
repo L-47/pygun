@@ -1,5 +1,8 @@
-run: 
-	gunicorn -k flask_sockets.worker "app:build_app('$$GUNDB')"
+mem:
+	gunicorn -k flask_sockets.worker "app:build_app('mem')" -b $$HOST\:8000
+
+pickle:
+        gunicorn -k flask_sockets.worker "app:build_app('pickle')" -b $$HOST\:8000
 
 doc:
 	python3 -m pdoc gundb --html --output-dir docs/api --force
