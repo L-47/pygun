@@ -13,7 +13,7 @@
       var port = "{{ config.PORT }}";
       if (host[0] == "{") {
           host = "127.0.0.1";
-          port = 8000;
+          port = 8080;
       }
       var todos = Gun("ws://" + host + ":" + port + "/gun").get('todos://1').get("list_todos")
 

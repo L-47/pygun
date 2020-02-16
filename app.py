@@ -2,8 +2,8 @@ import os
 from gundb.server import app
 from gundb.gunrequesthandler import GUNRequestHandler
 
-HOST = os.getenv('HOST', '127.0.0.1').strip()
-PORT = int(os.getenv('PORT', '8000').strip())
+HOST = os.getenv('HOST', '0.0.0.0').strip()
+PORT = int(os.getenv('PORT', '8080').strip())
 
 
 def build_app(backend):

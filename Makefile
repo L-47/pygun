@@ -1,8 +1,8 @@
 mem:
-	gunicorn -k flask_sockets.worker "app:build_app('mem')" -b 0.0.0.0:8000
+	gunicorn -k flask_sockets.worker "app:build_app('mem')" -b 0.0.0.0:8080
 
 pickle:
-	gunicorn -k flask_sockets.worker "app:build_app('pickle')" -b 0.0.0.0:8000
+	gunicorn -k flask_sockets.worker "app:build_app('pickle')" -b 0.0.0.0:8080
 
 doc:
 	python -m pdoc gundb --html --output-dir docs/api --force

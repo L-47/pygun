@@ -8,8 +8,8 @@ from geventwebsocket import WebSocketApplication, WebSocketServer, Resource
 from gundb.geventserver import GeventGunServer
 
 
-HOST = os.getenv('HOST', '127.0.0.1').strip()
-PORT = int(os.getenv('PORT', '8000').strip())
+HOST = os.getenv('HOST', '0.0.0.0').strip()
+PORT = int(os.getenv('PORT', '8080').strip())
 
 
 if __name__ == "__main__":
