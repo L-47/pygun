@@ -9,7 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script>
-      var todos = Gun("ws://{{ config.HOST }}:{{ config.PORT }}/gun").get('todos://1').get("list_todos")
+      var host = "{{ config.HOST }}";
+      var port = "{{ config.PORT }}";
+      if (host[0] == "{") {
+          host = "127.0.0.1";
+          port = 8000;
+      }
+      var todos = Gun("ws://" + host + ":" + port + "/gun").get('todos://1').get("list_todos")
 
       $('form').on('submit', function (event) {
         var input = $('form').find('input')
@@ -26,9 +32,9 @@
         if (todo) {
           var html = '<span onclick="clickTitle(this)">' + todo.title + '</span>'
           html = '<input type="checkbox" onclick="clickCheck(this)" ' + (todo.done ? 'checked' : '') + '>' + html
-// Insert here first
+ console.log('Insert here first')
           li.html(html)
-// Insert here next
+ console.log('Insert here next')
         }
       })
       function clickTitle (element) {
@@ -48,7 +54,7 @@
         todos.get($(element).parent().attr('id')).put({done: $(element).prop('checked')})
       }
 
-// Insert here also
+console.log('Insert here also')
     </script>
 
     <style>

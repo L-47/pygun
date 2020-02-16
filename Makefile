@@ -2,10 +2,10 @@ mem:
 	gunicorn -k flask_sockets.worker "app:build_app('mem')" -b 0.0.0.0:8000
 
 pickle:
-    gunicorn -k flask_sockets.worker "app:build_app('pickle')" -b 0.0.0.0:8000
+	gunicorn -k flask_sockets.worker "app:build_app('pickle')" -b 0.0.0.0:8000
 
 doc:
-	python3 -m pdoc gundb --html --output-dir docs/api --force
+	python -m pdoc gundb --html --output-dir docs/api --force
 
 pyproject.lock: pyproject.toml
 	poetry lock
@@ -14,22 +14,22 @@ pyproject.lock: pyproject.toml
 requirements.txt: pyproject.lock
 	poetry run pip freeze > $@
 
-rungevent:
-	python3 geventapp.py $$GUNDB
+memgevent:
+	python geventapp.py mem
 
 clientall: clientdummy clientmem clientredis clientudb clientpickle
 
 clientdummy:
-	python3 testclient.py dummy
+	python testclient.py dummy
 
 clientredis:
-	python3 testclient.py redis
+	python testclient.py redis
 
 clientmem:
-	python3 testclient.py memory
+	python testclient.py memory
 
 clientudb:
-	python3 testclient.py udb
+	python testclient.py udb
 
 clientpickle:
-	python3 testclient.py pickle
+	python testclient.py pickle

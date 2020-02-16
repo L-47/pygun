@@ -7,6 +7,7 @@ from geventwebsocket.protocols.base import BaseProtocol
 from gundb.gunrequesthandler import GUNRequestHandler
 from functools import partial
 
+
 class GeventRequestHandler(BaseProtocol):
     def __init__(self, app):
         super().__init__(app)

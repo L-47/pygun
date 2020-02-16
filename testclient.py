@@ -2,6 +2,7 @@ import asyncio
 from gundb.client import GunClient
 from gundb.backends import *
 
+
 async def test():
     import sys
     argv = sys.argv
